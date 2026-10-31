@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python -m pytest:*)",
+      "Bash(python3 scripts/repo-facts.py:*)",
+      "Bash(python3 scripts/gen-deploy-sequence.py:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run build:*)",
+      "Bash(KUBECONFIG=~/.kube/k3s.yaml kubectl get:*)",
+      "Bash(KUBECONFIG=~/.kube/k3s.yaml kubectl describe:*)",
+      "Bash(KUBECONFIG=~/.kube/k3s.yaml kubectl logs:*)",
+      "Bash(kubectl get:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./frontend/out/**)",
+      "Read(./frontend/.next/**)",
+      "Read(./.antigravity/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"${CLAUDE_PROJECT_DIR:-.}/.claude/session-start.md\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR:-.}/scripts/cloud-session-start.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run pytest *)",
+      "Bash(uv run pytest)",
+      "Bash(uv run alembic upgrade *)",
+      "Bash(uv run alembic revision *)",
+      "Bash(uv run alembic current)",
+      "Bash(uv run alembic history)",
+      "Bash(uv run python -m app.seed *)",
+      "Bash(uv sync *)",
+      "Bash(npm run build)",
+      "Bash(npm run dev *)",
+      "Bash(npm run dev:mock *)",
+      "Bash(npm run e2e *)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(docker compose up -d db)",
+      "Bash(docker compose ps)",
+      "Bash(docker compose logs *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "mcp__higgsfield__*"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./backend/.env)"
+    ]
+  }
+}
