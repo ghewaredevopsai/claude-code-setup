@@ -19,7 +19,7 @@ message.
 
 Full write-up, room export and code: **[ghewaredevopsai/pocketful-dark-factory-v2](https://github.com/ghewaredevopsai/pocketful-dark-factory-v2)**
 ([FACTORY.md](https://github.com/ghewaredevopsai/pocketful-dark-factory-v2/blob/main/FACTORY.md)) ·
-[video](https://youtu.be/Uoi_bmq9ttM)
+[video](https://youtu.be/Uoi_bmq9ttM) · [LinkedIn write-up](https://www.linkedin.com/feed/update/urn:li:activity:7517120009123319808/)
 
 ## What is here
 

@@ -5,7 +5,7 @@
 > 8 h 46 min, **$74.88** at list price, **36 / 36** planted faults caught, and every stage passing the official
 > harness from a fresh clone in an offline container. The seat mandates are in [`dark-factory/`](dark-factory/);
 > the full run is in [pocketful-dark-factory-v2](https://github.com/ghewaredevopsai/pocketful-dark-factory-v2)
-> ([video](https://youtu.be/Uoi_bmq9ttM)).
+> ([video](https://youtu.be/Uoi_bmq9ttM), [LinkedIn write-up](https://www.linkedin.com/feed/update/urn:li:activity:7517120009123319808/)).
 
 These are the Claude Code files I run every day, copied unedited from four of my repos plus my user-level config.
 The product repos are private, so this repository publishes the files that configure Claude, not the product code.
