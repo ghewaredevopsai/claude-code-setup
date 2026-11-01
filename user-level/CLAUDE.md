@@ -60,7 +60,6 @@ When the user is iterating on a prompt, agent, model, or any system whose qualit
 
 Don't impose this on one-off tasks. Offer it when I see: prompt tuning, agent/skill design, model migration (4.6 → 4.7 → 4.8), RAG/retrieval quality work, or "this sometimes works and sometimes doesn't."
 
-
 ---
 
 ## Escape hatch
