@@ -2,7 +2,7 @@
 # SessionStart hook (.claude/settings.json). In a Claude Code cloud session it
 # starts the test Postgres, creates the role and database the tests use if they
 # are missing (an environment with no setup script has neither), and exports
-# the DSN tests/test_pg_*.py need, the same values as .github/workflows/ci.yml.
+# the DSN tests/test_pg_*.py need.
 # Does nothing on a local machine.
 [ "${CLAUDE_CODE_REMOTE:-}" = "true" ] || exit 0
 

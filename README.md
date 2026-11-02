@@ -60,8 +60,6 @@ flowchart LR
   end
 ```
 
-A note on the copies: AgentGrow removed GitHub Actions on 2026-10-23, after its start-here note was written. Items 3 and 4 there (and a comment in `cloud-session-start.sh`) still mention CI; the test suite run by `deploy.sh` is the real gate.
-
 Related public work:
 - [pocketful-dark-factory-v2](https://github.com/ghewaredevopsai/pocketful-dark-factory-v2): the 2nd-place hackathon run, with the room export, `FACTORY.md` and all four stages.
 - [adlc-with-github-copilot-ticket-to-pr](https://github.com/ghewaredevopsai/adlc-with-github-copilot-ticket-to-pr): my ticket-to-PR course labs, including Jira over MCP.
