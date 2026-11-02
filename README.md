@@ -13,6 +13,12 @@ The only changes: personal sections were removed from the user-level `CLAUDE.md`
 
 Rajesh Gheware · [Gheware DevOps AI](https://github.com/ghewaredevopsai)
 
+## Start here (five minutes)
+
+1. [`dark-factory/mandates/reviewer.md`](dark-factory/mandates/reviewer.md): the seat that had to plant faults and catch them before it could accept anything. 36 planted, 36 caught.
+2. [`thaliscan/.claude/agents/spec-reviewer.md`](thaliscan/.claude/agents/spec-reviewer.md): a review subagent that gets the PR number, not the author's summary, and re-runs the evidence itself.
+3. [`kaggle-gemma4-agent/.claude/settings.json`](kaggle-gemma4-agent/.claude/settings.json): a PostToolUse hook that validates the agent after every edit, so a broken change never reaches an expensive GPU run.
+
 ## What is here
 
 | Folder | Repo it comes from | What it shows |
@@ -33,8 +39,34 @@ Rajesh Gheware · [Gheware DevOps AI](https://github.com/ghewaredevopsai)
 - **Humans hold the gates.** A human approves the spec before code; a human merges anything touching user data, billing or production; a competition submission waits for my yes.
 - **Or no human at all, once the gates are written down.** In the dark factory the gates are the mandates: the reviewer must plant faults and catch them, and the modeler reads the spec separately from the implementer. One message in, four accepted stages out.
 
+```mermaid
+flowchart LR
+  subgraph gated["Human-gated: ThaliScan, AgentGrow"]
+    direction TB
+    S["Spec issue with numbered ACs"] -->|"human approves"| B["Claude session builds in a worktree, tests first"]
+    B --> R["spec-reviewer subagent re-runs the evidence"]
+    R -->|"changes requested, max 3 rounds"| B
+    R -->|"APPROVE"| M["Human merges and deploys"]
+  end
+  subgraph dark["Dark factory: hackathon, 2nd place"]
+    direction TB
+    D["One human message"] --> C["coordinator"]
+    C --> I["implementer: ledger, code, tests"]
+    C --> Mo["modeler: reference model, never reads product code"]
+    I --> Rv["reviewer: offline build, differential runs, planted faults"]
+    Mo --> Rv
+    Rv -->|"REJECT"| I
+    Rv -->|"ACCEPT"| C
+  end
+```
+
 A note on the copies: AgentGrow removed GitHub Actions on 2026-10-23, after its start-here note was written. Items 3 and 4 there (and a comment in `cloud-session-start.sh`) still mention CI; the test suite run by `deploy.sh` is the real gate.
 
 Related public work:
 - [pocketful-dark-factory-v2](https://github.com/ghewaredevopsai/pocketful-dark-factory-v2): the 2nd-place hackathon run, with the room export, `FACTORY.md` and all four stages.
 - [adlc-with-github-copilot-ticket-to-pr](https://github.com/ghewaredevopsai/adlc-with-github-copilot-ticket-to-pr): my ticket-to-PR course labs, including Jira over MCP.
+
+## Work with me
+
+I teach this hands-on: Claude Code and agentic-AI workshops for engineering teams, and setups like these for your own repos.
+[devops.gheware.com](https://devops.gheware.com) · [rajeshgheware.github.io](https://rajeshgheware.github.io)
